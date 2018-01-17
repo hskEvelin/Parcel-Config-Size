@@ -41,7 +41,7 @@ public class ParcelSizeTest {
 		assertEquals("Expected parcelsize XS but actual size was " + p.getSize() + ": Input 0/0/0", Parcelsize.XS, p.getSize());
 		
 		//Test XS.2: 20 cm
-		json = serializeParcel(10, 10, 5);
+		json = serializeParcel(11, 10, 9);
 		
 		resp = service.calculateParcelSize(json);
 		json = (String)(resp.getEntity());
@@ -50,7 +50,7 @@ public class ParcelSizeTest {
 		assertEquals("Expected parcelsize XS but actual size was " + p.getSize() + ": Input 10/10/5", Parcelsize.XS, p.getSize());
 		
 		//Test XS.3: 35cm
-		json = serializeParcel(20, 15, 10);
+		json = serializeParcel(20, 15, 17);
 		
 		resp = service.calculateParcelSize(json);
 		json = (String)(resp.getEntity());
@@ -67,7 +67,7 @@ public class ParcelSizeTest {
 		//Test Size S: 36 - 50 cm
 		
 		//Test S.1: 36cm
-		String json = serializeParcel(21, 15, 10);
+		String json = serializeParcel(21, 15, 17);
 		
 		Response resp = service.calculateParcelSize(json);
 		json = (String)(resp.getEntity());
@@ -76,7 +76,7 @@ public class ParcelSizeTest {
 		assertEquals("Expected parcelsize S but actual size was " + p.getSize() + ": Input 21/15/10", Parcelsize.S, p.getSize());
 		
 		//Test S.2: 40 cm
-		json = serializeParcel(20, 20, 5);
+		json = serializeParcel(25, 20, 15);
 		
 		resp = service.calculateParcelSize(json);
 		json = (String)(resp.getEntity());
@@ -85,7 +85,7 @@ public class ParcelSizeTest {
 		assertEquals("Expected parcelsize S but actual size was " + p.getSize() + ": Input 20/20/5", Parcelsize.S, p.getSize());
 		
 		//Test S.3: 50cm
-		json = serializeParcel(20, 30, 10);
+		json = serializeParcel(20, 30, 25);
 		
 		resp = service.calculateParcelSize(json);
 		json = (String)(resp.getEntity());
