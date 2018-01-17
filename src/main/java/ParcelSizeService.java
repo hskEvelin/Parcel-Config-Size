@@ -1,4 +1,4 @@
-package service;
+package main.java;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -37,6 +37,7 @@ public class ParcelSizeService {
 		Gson g = new Gson();
 		Parcel parcel = g.fromJson(json, Parcel.class);
 		
+		String resp = "";
 		if(parcel != null){
 			int girth = parcel.getGirth();
 			
@@ -53,11 +54,12 @@ public class ParcelSizeService {
 			}else{
 				parcel.setSize(Parcelsize.UNDEFINED);
 			}
+			resp = g.toJson(parcel);
 		}else{
 			System.out.println("No Parcel transmitted: Could not deserialize JSON-String to Object");
+			resp = "No Parcel transmitted: Could not deserialize JSON-String to Object";
 		}
 		
-		String resp = g.toJson(parcel);
 		System.out.println("Response: " + g.toJson(parcel));
 		return Response
 			      .status(200)
@@ -67,7 +69,7 @@ public class ParcelSizeService {
 			        "origin, content-type, accept, authorization")
 			      .header("Access-Control-Allow-Methods", 
 			        "GET, POST, PUT, DELETE, OPTIONS, HEAD")
-			      .entity(g.toJson(parcel))
+			      .entity(resp)
 			      .build();
 	}
 }
