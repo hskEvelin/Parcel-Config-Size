@@ -5,7 +5,6 @@ import java.io.IOException;
 import javax.swing.JOptionPane;
 
 import com.sun.jersey.api.container.httpserver.HttpServerFactory;
-import com.sun.jersey.api.core.ResourceConfig;
 import com.sun.net.httpserver.HttpServer;
 
 public class StartParcelSizeService{
