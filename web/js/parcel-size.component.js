@@ -21,7 +21,7 @@ angular.
 		  '<input class="w3-input" type="text" ng-model="$ctrl.parcel.depth">'+
 		  '</form>'+
 		  '<br />'+
-		  '<button class="w3-btn w3-teal" ng-click="$ctrl.calcSize($ctrl.parcel)">Größe berechnen</button><label">Paketgröße: {{$ctrl.parcel.size}}</label> '+
+		  '<button class="w3-btn w3-teal" ng-click="$ctrl.calcSize($ctrl.parcel)">Größe berechnen</button><label id="cfg-size-res">Paketgröße: {{$ctrl.parcel.size}}</label> '+
 		  '</div>' ,
     	
     	
