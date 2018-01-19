@@ -1,0 +1,10 @@
+version: '3'
+services:
+  webserver:
+    image: "config/parcelmain"
+    ports:
+     - "1150:8080"
+  parcelsize:
+    image: "config/parcelsize"
+    ports:
+     - "1100:1100"
