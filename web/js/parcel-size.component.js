@@ -12,13 +12,13 @@ angular.
 		  '<form class="w3-container">'+
 	
 		  '<label>Länge</label>'+
-		  '<input class="w3-input" type="text" ng-model="$ctrl.parcel.length">'+
+		  '<input class="w3-input" id="cfg-size-length" type="text" ng-model="$ctrl.parcel.length">'+
 	
 		  '<label>Breite</label>'+
-		  '<input class="w3-input" type="text" ng-model="$ctrl.parcel.height">'+
+		  '<input class="w3-input" id="cfg-size-height" type="text" ng-model="$ctrl.parcel.height">'+
 		 
 		  '<label>Tiefe</label>'+
-		  '<input class="w3-input" type="text" ng-model="$ctrl.parcel.depth">'+
+		  '<input class="w3-input" id="cfg-size-depth" type="text" ng-model="$ctrl.parcel.depth">'+
 		  '</form>'+
 		  '<br />'+
 		  '<button class="w3-btn w3-teal" ng-click="$ctrl.calcSize($ctrl.parcel)">Größe berechnen</button><label id="cfg-size-res">Paketgröße: {{$ctrl.parcel.size}}</label> '+
