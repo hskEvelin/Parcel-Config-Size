@@ -17,8 +17,9 @@ public class StartParcelSizeService{
 		try {
 			server = HttpServerFactory.create("http://localhost:1100/parcel");
 			server.start();
-			JOptionPane.showMessageDialog(null, "ParcelSize-Service started!\nClick to end");
-			server.stop(0);
+			//while(true){}
+			//JOptionPane.showMessageDialog(null, "ParcelSize-Service started!\nClick to end");
+			//server.stop(0);
 		} catch (IllegalArgumentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
