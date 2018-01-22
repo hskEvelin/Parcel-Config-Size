@@ -1,9 +1,6 @@
 package main.java;
 
 import java.io.IOException;
-
-import javax.swing.JOptionPane;
-
 import com.sun.jersey.api.container.httpserver.HttpServerFactory;
 import com.sun.net.httpserver.HttpServer;
 
@@ -17,19 +14,7 @@ public class StartParcelSizeService{
 		try {
 			server = HttpServerFactory.create("http://localhost:1100/parcel");
 			server.start();
-			Runtime.getRuntime().addShutdownHook(new Thread() {
-		        public void run() {
-		            try {
-		                Thread.sleep(200);
-		                System.out.println("Shouting down ...");
-		                //some cleaning up code...
-		                server.stop(0);
-		            } catch (InterruptedException e) {
-		                // TODO Auto-generated catch block
-		                e.printStackTrace();
-		            }
-		        }
-		    });
+			
 			//while(true){}
 			//JOptionPane.showMessageDialog(null, "ParcelSize-Service started!\nClick to end");
 			//server.stop(0);
