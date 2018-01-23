@@ -66,6 +66,11 @@ task copyTestFiles(type: Copy){
 	  // Create all folders up-to and including B
 	  folder.mkdirs()
 	}
+	def testfile = new File('build/classes/simulations/parcel_config_size/ParcelConfigSizeSimulation.class')
+	if(!testfile.exists()){
+	    println('Gatling testclass does not exist')
+	}
+
 	from 'build/classes/simulations'
 	into 'target/test-classes'
 }
