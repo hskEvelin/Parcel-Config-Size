@@ -78,7 +78,7 @@ task copyTestFiles(type: Copy){
 //Run gatling-capacity test:
 //https://dzone.com/articles/integrating-gatling-into-a-gradle-build-understand
 //dependsOn: need to execute copyTestFiles first
-task gatlingRun(type: JavaExec, dependsOn: 'copyTestFiles') {
+task gatlingRun(type: JavaExec,dependsOn: 'copyTestFiles') {
 
     description = 'Run gatling tests'
 
