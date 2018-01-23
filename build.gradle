@@ -58,8 +58,8 @@ sourceSets{
 //copys the test-files for gatling from build folder to
 //gatling classpath-folder: target/test-classes
 task copyTestFiles(type: Copy){
-	from 'build/classes/simulations/parcel_config_size'
-	into 'target/test-classes/parcel_config_size'
+	from 'build/classes/simulations'
+	into 'target/test-classes'
 }
 
 //Run gatling-capacity test:
