@@ -1,4 +1,10 @@
+
 apply plugin: 'java'
+apply plugin: 'scala'
+
+configurations {
+    gatling
+}
 
 sourceCompatibility = 1.8
 version = '0.1'
@@ -34,4 +40,58 @@ dependencies {
     //runtime group: 'org.xerial', name: 'sqlite-jdbc', version: '3.21.0'
     //runtime group: 'com.github.detro.ghostdriver', name: 'phantomjsdriver', version: '1.0.1'
     testCompile group: 'junit', name: 'junit', version: '4.+'
+    gatling 'org.scala-lang:scala-library:2.11.8'
+    gatling 'io.gatling.highcharts:gatling-charts-highcharts:2.2.5'
+}
+//defines sourceSet outside the project-Source-folder for gatling test-files
+sourceSets{
+    simulations{
+        scala {
+            srcDirs = [ 'simulations/load' ]
+        }
+        resources{
+        	srcDirs = [ 'simulations/resources']
+        }
+        compileClasspath += configurations.gatling
+    }
+}
+//copys the test-files for gatling from build folder to
+//gatling classpath-folder: target/test-classes
+task copyTestFiles(type: Copy){
+	from 'build/classes/simulations/parcel_config_size'
+	into 'target/test-classes/parcel_config_size'
+}
+
+//Run gatling-capacity test:
+//https://dzone.com/articles/integrating-gatling-into-a-gradle-build-understand
+//dependsOn: need to execute copyTestFiles first
+task gatlingRun(type: JavaExec, dependsOn: 'copyTestFiles') {
+
+    description = 'Run gatling tests'
+
+    new File("${buildDir}/reports/gatling").mkdirs()
+
+    classpath = sourceSets.simulations.runtimeClasspath + configurations.gatling
+
+    main = "io.gatling.app.Gatling"
+
+    args = ['-s', 'ParcelConfigSizeSimulation',
+
+            '-sf', 'simulations/resources',
+
+            '-df', 'simulations/resources',
+
+            '-rf', "${buildDir}/reports/gatling"
+
+    ]
+}
+
+task showConfigurations  {
+
+    doLast {
+
+        configurations.all { conf -> println(conf) }
+
+    }
+
 }
