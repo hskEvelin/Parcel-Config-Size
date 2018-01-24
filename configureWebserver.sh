@@ -1,5 +1,5 @@
 #!/bin/bash
-
+sleep 1s
 #copy .js file to remote machine
 sftp -oPort=3022 vm-uat@127.0.0.1 <<< $'put web/js/'$1
 
