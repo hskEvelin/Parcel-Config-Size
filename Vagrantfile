@@ -11,4 +11,6 @@ Vagrant.configure("2") do |config|
 		#d.run "parcelconfig-size", args: "-p 1100:1100"
 		#d.run "parcelconfig-main", args: "-p 1150:8080"
 	end
+	
+	config.vm.provision :docker_compose
 end
