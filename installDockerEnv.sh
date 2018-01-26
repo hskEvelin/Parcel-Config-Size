@@ -1,4 +1,7 @@
 #!/bin/bash
+#create VM and start it
+vagrant up --provider=virtualbox
+
 for var in "$@"
 do
     	#save docker image as tar file, so we can transfer it to remote machine
