@@ -19,5 +19,5 @@ done
 vagrant ssh -c 'cp /vagrant/docker-compose.yml ~/'
 
 #start docker containers on remote machine
-vagrant ssh c- 'docker-compose up -d'
+vagrant ssh -c 'docker-compose up -d'
 
