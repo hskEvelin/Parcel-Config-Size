@@ -1,5 +1,5 @@
 #!/bin/bash
-vagrant destroy
+vagrant destroy -y
 
 #stopping all containers, removing them and removing all images
 #ssh -p 3022 vm-uat@127.0.0.1 'docker-compose stop -d | docker rm $(docker ps -a -q) | docker rmi $(docker images -q)'
