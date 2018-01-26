@@ -1,6 +1,7 @@
 #!/bin/bash
 #create VM and start it
-vagrant up --provider=virtualbox
+#vagrant up --provider=virtualbox
+vagrant reload
 
 for var in "$@"
 do
