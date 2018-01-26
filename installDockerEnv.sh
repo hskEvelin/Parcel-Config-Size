@@ -16,7 +16,7 @@ done
 
 #copy docker-compose file to remote machine
 #sftp -oPort=3022 vm-uat@127.0.0.1 <<< $'put docker-compose.yml'
-vagrant shh -c 'cp /vagrant/docker-compose.yml ~/'
+vagrant ssh -c 'cp /vagrant/docker-compose.yml ~/'
 
 #start docker containers on remote machine
 vagrant ssh c- 'docker-compose up -d'
