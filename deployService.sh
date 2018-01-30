@@ -4,13 +4,14 @@
 sftp -oPort=2222 vm-production@127.0.0.1 <<< $'put parcelconfig-size images/'
 
 #load docker image to local docker registry and start container
-ssh -p 2222 vm-production@127.0.0.1 'docker load -i parcelconfig-size'
+ssh -p 2222 vm-production@127.0.0.1 'docker load -i images/parcelconfig-size'
 
 result = $(ssh -p 2222 vm-production@127.0.0.1 'docker ps --filter ancestor=parcelconfig-size --format "{{.Names}}")
 var = $((1+0))
 for i in result
 do
-	ssh -p 2222 vm-production@127.0.0.1 "docker run -d -p '112'$var:1100 parcelconfig-size"
+	port = "112"$var
+	ssh -p 2222 vm-production@127.0.0.1 'docker run -d -p $port:1100 parcelconfig-size'
 	var = $((var+1))
 done	 
 
