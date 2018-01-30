@@ -1,5 +1,4 @@
 #!/bin/bash
-#sleep 5s
 #copy .js file to remote machine
 #sftp -oPort=3022 vm-uat@127.0.0.1 <<< $'put web/js/'$1
 
@@ -9,3 +8,5 @@
 
 #publish js to repository server
 sftp -oPort=2200 vm-repo@127.0.0.1 <<< $'put web/js/parcel-size.component.js repository/js/'
+
+sleep 5s
