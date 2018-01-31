@@ -7,6 +7,6 @@
 #vagrant ssh -c 'docker cp /vagrant/web/js/parcel-size.component.js vagrant_webserver_1:/usr/local/tomcat/webapps/ParcelConfigService/js'
 
 #publish js to repository server
-sftp -oPort=2200 vm-repo@127.0.0.1 <<< $'put web/js/parcel-size.component.js repository/js/'
+sftp -oPort=2200 vagrant@127.0.0.1 <<< $'put web/js/parcel-size.component.js repository/js/'
 
 sleep 5s
