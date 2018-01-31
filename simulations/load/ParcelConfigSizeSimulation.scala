@@ -9,7 +9,7 @@ import io.gatling.jdbc.Predef._
 class ParcelConfigSizeSimulation extends Simulation {
 
 	val httpProtocol = http
-		.baseURL("http://localhost:3150")
+		.baseURL("http://vm.parcel.aps.com:1150")
 		.inferHtmlResources(BlackList(""".*\.css""", """.*\.js""", """.*\.ico"""), WhiteList())
 		.acceptHeader("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8")
 		.acceptEncodingHeader("gzip, deflate")
