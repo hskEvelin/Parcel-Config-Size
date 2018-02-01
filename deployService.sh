@@ -16,6 +16,6 @@ do
 done	 
 
 #load js file to webserver
-sftp -oPort=2223 vagrant@127.0.0.1 <<< $'put web/js/parcel-size.component.js repository/js/'
+sftp -oPort=2200 vagrant@127.0.0.1 <<< $'put web/js/parcel-size.component.js repository/js/'
 
 
