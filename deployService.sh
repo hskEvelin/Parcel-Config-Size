@@ -6,7 +6,7 @@ sftp -oPort=2223 vagrant@127.0.0.1 <<< $'put parcelconfig-size images/'
 #load docker image to local docker registry and start container
 ssh -p 2223 vagrant@127.0.0.1 'docker load -i images/parcelconfig-size'
 
-result=$(ssh -p 2222 vm-production@127.0.0.1 'docker ps --filter ancestor=parcelconfig-size --format "{{.Names}}"')
+result=$(ssh -p 2223 vagrant@127.0.0.1 'docker ps --filter ancestor=parcelconfig-size --format "{{.Names}}"')
 var=1
 for i in $result
 do
