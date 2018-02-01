@@ -23,9 +23,9 @@ class ParcelConfigSizeSimulation extends Simulation {
 	val headers_2 = Map(
 		"Accept" -> "application/json, text/plain, */*",
 		"Content-Type" -> "text/plain",
-		"Origin" -> "http://localhost:1150")
+		"Origin" -> "http://vm.parcel.aps.com:1150")
 
-    val uri1 = "localhost"
+    val uri1 = "vm.parcel.aps.com"
 
 	val scn = scenario("ParcelConfigSizeSimulation")
 		.exec(http("request_0")
