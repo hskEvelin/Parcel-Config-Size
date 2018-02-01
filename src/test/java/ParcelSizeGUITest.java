@@ -39,7 +39,7 @@ public class ParcelSizeGUITest {
 
 	  @Test
 	  public void testPacelSizeGUITestID() throws Exception {
-	    driver.get("http://:1150/ParcelConfigService/");
+	    driver.get("http://vm.parcel.aps.com:1150/ParcelConfigService/");
 	    driver.findElement(By.id("cfg-size-length")).click();
 	    driver.findElement(By.id("cfg-size-length")).clear();
 	    driver.findElement(By.id("cfg-size-length")).sendKeys("20");
