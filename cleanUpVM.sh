@@ -1,4 +1,7 @@
 #!/bin/bash
+
+vagrant ssh -c 'docker-compose down'
+
 vagrant halt 
 
 #stopping all containers, removing them and removing all images
