@@ -24,7 +24,7 @@ result=$(ssh -p 2223 vagrant@127.0.0.1 'docker ps --filter ancestor=parcelconfig
 var=1
 for i in $result
 do
-	port=$(expr 1120 + $var)
+	port=$(expr 1100 + $var)
 	ssh -p 2223 vagrant@127.0.0.1 'docker run -d -p $port:1100 parcelconfig-size:'$1
 	var=$((var+1))
 done	 
