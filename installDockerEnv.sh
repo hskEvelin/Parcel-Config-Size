@@ -30,8 +30,6 @@ do
 	#ssh command to load packed docker image in registry on remote machine
 	vagrant ssh -c 'docker load -i /vagrant/'$var
 
-	#start docker containers
-	#vagrant ssh -c 'docker run -d -p 1100:1100 '$var
 done
 
 #copy docker-compose file to remote machine
