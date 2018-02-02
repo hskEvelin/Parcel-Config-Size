@@ -28,7 +28,7 @@ do
 	#sftp -oPort=3022 vm-uat@127.0.0.1 <<< $'put '$var
 
 	#ssh command to load packed docker image in registry on remote machine
-	vagrant ssh -c 'docker load -i /vagrant/'$var':latest'
+	vagrant ssh -c 'docker load -i /vagrant/'$var'
 
 done
 
