@@ -1,5 +1,10 @@
 #!/bin/bash
 
+#get version number of current running service
+sftp -oPort=2200 vagrant@127.0.0.1:repository/images/versions versions
+. versions
+v=$parcelconfigsize
+
 #tag image with version number
 docker tag $(docker images --filter=reference=parcelconfig-size:latest --format "{{.ID}}") parcelconfig-size:$1
 docker save -o parcelconfig-size parcelconfig-size:$1
@@ -19,7 +24,7 @@ sftp -oPort=2223 vagrant@127.0.0.1 <<< $'put parcelconfig-size images/'
 #load docker image to local docker registry and start container
 ssh -p 2223 vagrant@127.0.0.1 'docker load -i images/parcelconfig-size'
 
-old_tag=$(($1 - 1))
+old_tag=$(($v - 1))
 sshcmd='docker ps --filter ancestor=parcelconfig-size:'$old_tag' --format "{{.Names}}"'
 echo $sshcmd
 
@@ -27,7 +32,7 @@ result=$(ssh -p 2223 vagrant@127.0.0.1 $sshcmd)
 var=1
 for i in $result
 do
-	port=$(expr 1120 + $var)
+	port=$(expr 1100 + $var)
 	ssh -p 2223 vagrant@127.0.0.1 'docker run -d -p '$port':1100 parcelconfig-size:'$1
 	var=$((var+1))
 done	 

@@ -9,4 +9,6 @@
 #publish js to repository server
 sftp -oPort=2200 vagrant@127.0.0.1 <<< $'put web/js/parcel-size.component.js repository/js/'
 
+
+
 sleep 5s
