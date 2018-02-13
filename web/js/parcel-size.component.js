@@ -4,7 +4,7 @@ angular.
   component('parcelSize', {
 	  transclude: true,
 	  template:
-		  '<div class="w3-card-4">'+
+		  '<div class="w3-card-2">'+
 		  '<div class="w3-container w3-teal">'+
 		    '<h2>Paketgröße</h2>'+
 		  '</div>'+
@@ -19,13 +19,13 @@ angular.
 		 
 		  '<label>Tiefe</label>'+
 		  '<input class="w3-input" id="cfg-size-depth" type="text" ng-model="$ctrl.parcel.depth">'+
-		  '</form>'+
+		  
 		  '<br />'+
 		  '<button id="cfg-size-button" class="w3-btn w3-teal" ng-click="$ctrl.calcSize($ctrl.parcel)">Größe berechnen</button><label id="cfg-size-res">Paketgröße: {{$ctrl.parcel.size}}</label> '+
-		  '</div>' ,
+		  '</div>' +
+		  '</form>',
     	
-    	
-    controller: function ParcelOptionController($rootScope, $http) {
+    controller: function ParcelSizeController($rootScope, $http) {
       this.parcel = 
         {
           length: 0,
@@ -33,10 +33,13 @@ angular.
           depth: 0,
           size: ''
         };
+      this.parcelsize = ''; 
+      $rootScope.parcelsize =this.parcel;
+      
       $rootScope.size = this.size;
-      this.parcelsize = '';
+      
       this.calcSize = function($parcel){
-    	 console.log(JSON.stringify(this.parcel));
+    	  console.log(JSON.stringify(this.parcel));
     	
     	 $http({
     		    url: "http://vm.parcel.aps.com:1100/parcel/sent/size",
@@ -52,6 +55,7 @@ angular.
     		});
     	 
       }
+     
     }
   });
   
