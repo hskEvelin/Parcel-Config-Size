@@ -29,9 +29,9 @@ do
 
 	#transfer tar file to remote machine via sftp on Port 3022
 	#sftp -oPort=3022 vm-uat@127.0.0.1 <<< $'put '$var
-	sshcmd='docker load -i /vagrant/'$var
+	
 	#ssh command to load packed docker image in registry on remote machine
-	vagrant ssh -c $sshcmd
+	vagrant ssh -c 'docker load -i /vagrant/'$var
 
 done
 
