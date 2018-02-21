@@ -30,7 +30,7 @@ public class DatabaseMock implements IDatabaseHandler {
 	public Map<Integer, Parcelsize> getParcelSizeTable() {
 		Map<Integer, Parcelsize> map = new TreeMap<Integer, Parcelsize>();
 		map.put(35, Parcelsize.XS);
-		map.put(45, Parcelsize.S);
+		map.put(50, Parcelsize.S);
 		map.put(65, Parcelsize.M);
 		map.put(80, Parcelsize.L);
 		map.put(300, Parcelsize.XL);

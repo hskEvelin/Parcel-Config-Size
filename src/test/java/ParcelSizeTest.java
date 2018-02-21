@@ -65,7 +65,8 @@ public class ParcelSizeTest {
 	
 	@Test
 	public void testParcelSizeS(){
-		ParcelSizeService service = new ParcelSizeService();
+		IDatabaseHandler db = new DatabaseMock();
+		ParcelSizeService service = new ParcelSizeService(db);
 		Gson g = new Gson();
 		//Test Size S: 36 - 50 cm
 		
