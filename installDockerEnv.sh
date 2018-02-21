@@ -20,7 +20,7 @@ vagrant up --provider=virtualbox
 #done
 
 #create docker network
-docker network create parcelconfig-net
+vagrant ssh -c 'docker network create parcelconfig-net'
 
 for var in "$@"
 do
@@ -29,7 +29,7 @@ do
 
 	#transfer tar file to remote machine via sftp on Port 3022
 	#sftp -oPort=3022 vm-uat@127.0.0.1 <<< $'put '$var
-	sshcmd='docker load -i /vagrant/'$var':latest'
+	sshcmd='docker load -i /vagrant/'$var
 	#ssh command to load packed docker image in registry on remote machine
 	vagrant ssh -c $sshcmd
 
