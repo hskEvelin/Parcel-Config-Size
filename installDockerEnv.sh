@@ -45,5 +45,5 @@ vagrant ssh -c 'cp /vagrant/docker-compose.yml ~/'
 
 #start docker containers on remote machine
 #vagrant ssh -c 'docker-compose up -d'
-vagrant ssh -c 'docker run --name=webserver --net parcelconfig-net -p 1150:8080 -d parcelconfig-main:latest'
-vagrant ssh -c 'docker run --name=parcelconfig-size --net parcelconfig-net -p 1100:1100 -d parcelconfig-size:latest'
+vagrant ssh -c 'docker run --name=webserver --net parcelconfig-net -p 1150:8080 -d parcelconfig-main'
+vagrant ssh -c 'docker run --name=parcelconfig-size --net parcelconfig-net -p 1100:1100 -d parcelconfig-size'
