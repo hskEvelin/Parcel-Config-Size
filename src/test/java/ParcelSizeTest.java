@@ -6,6 +6,8 @@ import org.junit.Test;
 
 import com.google.gson.Gson;
 import static org.junit.Assert.*;
+
+import main.java.IDatabaseHandler;
 import main.java.Parcel;
 import main.java.ParcelSizeService;
 import main.java.Parcelsize;
@@ -27,7 +29,8 @@ public class ParcelSizeTest {
 	
 	@Test
 	public void testParcelSizeXS(){
-		ParcelSizeService service = new ParcelSizeService();
+		IDatabaseHandler db = new DatabaseMock();
+		ParcelSizeService service = new ParcelSizeService(db);
 		Gson g = new Gson();
 		//Test Size XS: 0 - 35 cm
 		

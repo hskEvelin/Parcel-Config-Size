@@ -7,7 +7,16 @@ import com.sun.net.httpserver.HttpServer;
 public class StartParcelSizeService{
 	
 	public static void main(String[] args){
-		
+		/*
+		IDatabaseHandler db = MySQLDatabaseHandler.getDatabaseHandler();
+		db.openConnection("jdbc:mysql://localhost:3306/ms_parcel_size?user=root&password=hskempten2014tool!!");
+		db.createParcelSizeTable();
+		db.insertParcelSize("XS", 35);
+		db.insertParcelSize("S",  50);
+		db.insertParcelSize("M",  65);
+		db.insertParcelSize("L",  80);
+		db.insertParcelSize("XL", 300);
+		*/
 		HttpServer server;
 		
 		

@@ -17,15 +17,23 @@ public class ParcelSizeService {
 	
 	private Map<Integer, Parcelsize> parcelSizeMap;
 	private int MAX_GIRTH = 300;
-	private SQLiteHandler sqlitedb;
+	private IDatabaseHandler db;
+	
 	
 	public ParcelSizeService() {
-		sqlitedb = new SQLiteHandler();
-		sqlitedb.openConnection();
-
+		db = MySQLDatabaseHandler.getDatabaseHandler();
+		db.openConnection("jdbc:mysql://mysql:3306/ms_parcel_size?user=user&password=mysql");
+		
 		parcelSizeMap = new HashMap<Integer,Parcelsize>();
-		parcelSizeMap = sqlitedb.getParcelSizeTable();
+		parcelSizeMap = db.getParcelSizeTable();
 	
+	}
+	
+	public ParcelSizeService(IDatabaseHandler db){
+		this.db = db;
+		db.openConnection("");
+		parcelSizeMap = new HashMap<Integer,Parcelsize>();
+		parcelSizeMap = db.getParcelSizeTable();
 	}
 	  
 	@POST

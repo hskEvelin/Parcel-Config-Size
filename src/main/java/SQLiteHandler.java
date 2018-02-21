@@ -10,14 +10,14 @@ import java.sql.Statement;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class SQLiteHandler {
+public class SQLiteHandler implements IDatabaseHandler {
 	private Connection c;
 	private Statement stmt;
 	private boolean open;
-	public void openConnection(){
+	public void openConnection(String url){
 		File file = new File(".");
 		
-		String url = "jdbc:sqlite:"+file.getAbsolutePath()+"/database/parcelsize.db";
+		url = "jdbc:sqlite:"+file.getAbsolutePath()+"/database/parcelsize.db";
 	    try {
 	         Class.forName("org.sqlite.JDBC");
 	         c = DriverManager.getConnection(url);
