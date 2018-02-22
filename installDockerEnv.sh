@@ -40,4 +40,4 @@ docker save -o parcel-mysql mysql/mysql-server:5.7.21
 vagrant ssh -c 'docker load -i /vagrant/parcel-mysql'
 
 #start all docker container
-sh ./startDockerContainer.sh
+sh ./startDockerContainer.sh 1

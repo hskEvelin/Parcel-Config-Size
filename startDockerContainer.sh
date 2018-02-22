@@ -8,4 +8,8 @@ sleep 5s
 #start docker containers on remote machine
 #vagrant ssh -c 'docker-compose up -d'
 vagrant ssh -c 'docker run --name=webserver --net parcelconfig-net -p 1150:8080 -d parcelconfig-main'
-vagrant ssh -c 'docker run --name=parcelconfig-size --net parcelconfig-net -p 1100:1100 -d parcelconfig-size'
+for i in $(seq 1 $1)
+do
+	port = $(expr 1100 + $i)
+	vagrant ssh -c 'docker run --name=parcelconfig-size-service_'$i' --net parcelconfig-net -p 110'$port':1100 -d parcelconfig-size'
+done
