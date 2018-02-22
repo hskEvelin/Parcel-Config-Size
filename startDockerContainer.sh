@@ -10,6 +10,6 @@ sleep 5s
 vagrant ssh -c 'docker run --name=webserver --net parcelconfig-net -p 1150:8080 -d parcelconfig-main'
 for i in $(seq 1 $1)
 do
-	port = $(expr 1100 + $i)
+	port=$(expr 1100 + $i)
 	vagrant ssh -c 'docker run --name=parcelconfig-size-service_'$i' --net parcelconfig-net -p 110'$port':1100 -d parcelconfig-size'
 done
