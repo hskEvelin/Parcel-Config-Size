@@ -28,7 +28,7 @@ sshcmd='docker ps --filter ancestor=parcelconfig-size:'$v' --format "{{.Names}}"
 echo $sshcmd
 
 result=$(ssh -p 2223 vagrant@127.0.0.1 $sshcmd)
-var=3
+var=1
 for i in $result
 do
 	port=$(expr 1100 + $var)
