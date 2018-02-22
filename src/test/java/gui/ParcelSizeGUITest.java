@@ -50,7 +50,7 @@ public class ParcelSizeGUITest {
 	    driver.findElement(By.id("cfg-size-depth")).clear();
 	    driver.findElement(By.id("cfg-size-depth")).sendKeys("20");
 	    driver.findElement(By.id("cfg-size-button")).click();
-	    Thread.sleep(500);
+	    Thread.sleep(5000);
 	    assertEquals("Paketgröße: S", driver.findElement(By.id("cfg-size-res")).getText());
 	  }
 
