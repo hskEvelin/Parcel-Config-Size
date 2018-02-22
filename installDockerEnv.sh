@@ -38,7 +38,10 @@ done
 #install mysql docker container and run it
 docker save -o parcel-mysql mysql/mysql-server:5.7.21
 vagrant ssh -c 'docker load -i /vagrant/parcel-mysql'
-vagrant ssh -c 'docker run --name=mysql --mount type=bind,src=/vagrant/scripts/,dst=/docker-entrypoint-initdb.d/ --net parcelconfig-net -e=MYSQL_ROOT_PASSWORD="mysql" -d mysql/mysql-server:5.7.21'
+vagrant ssh -c 'docker run --name=mysql-pc-size --mount type=bind,src=/vagrant/scripts/,dst=/docker-entrypoint-initdb.d/ --net parcelconfig-net -e=MYSQL_ROOT_PASSWORD="mysql" -d mysql/mysql-server:5.7.21'
+
+#wait some time for mysql database to start
+sleep 5s
 
 #copy docker-compose file to remote machine
 vagrant ssh -c 'cp /vagrant/docker-compose.yml ~/'
