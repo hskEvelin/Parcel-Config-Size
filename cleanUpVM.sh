@@ -1,6 +1,12 @@
 #!/bin/bash
 
-vagrant ssh -c 'docker-compose down'
+vagrant ssh -c 'docker stop mysql-pc-size'
+vagrant ssh -c 'docker stop parcelconfig-main'
+vagrant ssh -c 'docker stop parcelconfig-size'
+
+vagrant ssh -c 'docker rm mysql-pc-size'
+vagrant ssh -c 'docker rm parcelconfig-main'
+vagrant ssh -c 'docker rm parcelconfig-size'
 
 vagrant halt 
 

@@ -40,5 +40,5 @@ class ParcelConfigSizeSimulation extends Simulation {
 			.headers(headers_2)
 			.body(RawFileBody("ParcelConfigSizeSimulation_0002_request.txt")))
 
-	setUp(scn.inject(atOnceUsers(100))).protocols(httpProtocol)
+	setUp(scn.inject(atOnceUsers(1000))).protocols(httpProtocol)
 }
