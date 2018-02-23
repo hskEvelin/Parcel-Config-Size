@@ -33,6 +33,7 @@ for i in $result
 do
 	port=$(expr 1100 + $var)
 	ssh -p 2223 vagrant@127.0.0.1 'docker run -p '$port':1100 --name parcelconfig-size-service_'$var' --net parcelconfig-net -d parcelconfig-size:'$1
+	rc=$?; if [[ $rc != 0 ]]; then exit $rc; fi
 	var=$((var+1))
 done	 
 
