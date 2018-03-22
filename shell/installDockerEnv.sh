@@ -1,6 +1,9 @@
 #!/bin/bash
+
 #create VM and start it
-vagrant up --provider=virtualbox
+AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY SPATH=$SPATH vagrant up
+
+sh ./updateDNS.sh parcelconfigsize_testVM
 
 #while [ $# -gt 0 ]
 #do
@@ -27,8 +30,8 @@ do
    	#save docker image as tar file, so we can transfer it to remote machine
 	docker save -o $var $var
 
-	#transfer tar file to remote machine via sftp on Port 3022
-	#sftp -oPort=3022 vm-uat@127.0.0.1 <<< $'put '$var
+	#sync the created docker image
+	vagrant rsync
 	
 	#ssh command to load packed docker image in registry on remote machine
 	vagrant ssh -c 'docker load -i /vagrant/'$var
