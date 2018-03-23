@@ -3,7 +3,7 @@
 #create VM and start it
 AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY SPATH=$SPATH vagrant up
 
-sh ./updateDNS.sh parcelconfigsize_testVM
+sh ./shell/updateDNS.sh parcelconfigsize_testVM
 
 #while [ $# -gt 0 ]
 #do
@@ -31,6 +31,7 @@ do
 	docker save -o $var $var
 
 	#sync the created docker image
+	mv $var sync/
 	vagrant rsync
 	
 	#ssh command to load packed docker image in registry on remote machine
@@ -40,5 +41,6 @@ done
 
 #install mysql docker container and run it
 docker save -o parcel-mysql mysql/mysql-server:5.7.21
+mv parcel-mysql sync/
 vagrant ssh -c 'docker load -i /vagrant/parcel-mysql'
 
