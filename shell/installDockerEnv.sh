@@ -1,6 +1,7 @@
 #!/bin/bash
 
 #create VM and start it
+echo 'AWS_ACCESS_KEY_ID='$AWS_ACCESS_KEY_ID' AWS_SECRET_ACCESS_KEY='$AWS_SECRET_ACCESS_KEY' SPATH='$SPATH
 AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY SPATH=$SPATH vagrant up
 
 sh ./shell/updateDNS.sh parcelconfigsize_testVM

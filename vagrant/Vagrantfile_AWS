@@ -24,7 +24,7 @@ Vagrant.configure('2') do |config|
 
     # Specify username and private key path
     override.ssh.username = 'ubuntu'
-    override.ssh.private_key_path = ENV['SPATH']
+    override.ssh.private_key_path = '/var/lib/jenkins/.ssh/webserver-key.pem'
   end
 
   #install Docker onto VM
