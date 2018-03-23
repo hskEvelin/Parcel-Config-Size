@@ -40,8 +40,9 @@ do
 
 done
 
-#install mysql docker container and run it
+#install mysql docker container and load it
 docker save -o parcel-mysql mysql/mysql-server:5.7.21
 mv parcel-mysql sync/
+vagrant rsync
 vagrant ssh -c 'docker load -i /vagrant/parcel-mysql'
 
