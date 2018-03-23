@@ -30,4 +30,6 @@ Vagrant.configure('2') do |config|
   #install Docker onto VM
   config.vm.provision :docker
 
+  #configure sync folder
+  config.vm.synced_folder "sync/", "/vagrant"
 end
