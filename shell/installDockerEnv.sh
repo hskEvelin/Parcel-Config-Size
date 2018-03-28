@@ -4,7 +4,7 @@
 echo 'AWS_ACCESS_KEY_ID='$AWS_ACCESS_KEY_ID' AWS_SECRET_ACCESS_KEY='$AWS_SECRET_ACCESS_KEY' SPATH='$SPATH
 AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY SPATH=$SPATH vagrant up
 
-sh ./shell/updateDNS.sh parcelconfigsize_testVM
+./shell/updateDNS.sh parcelconfigsize_testVM
 
 #while [ $# -gt 0 ]
 #do
@@ -43,6 +43,7 @@ done
 #install mysql docker container and load it
 docker save -o parcel-mysql mysql/mysql-server:5.7.21
 mv parcel-mysql sync/
+cp -r scripts sync/
 vagrant rsync
 vagrant ssh -c 'docker load -i /vagrant/parcel-mysql'
 
