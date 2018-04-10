@@ -9,7 +9,7 @@ public class StartParcelSizeService{
 	public static void main(String[] args){
 		/*
 		IDatabaseHandler db = MySQLDatabaseHandler.getDatabaseHandler();
-		db.openConnection("jdbc:mysql://localhost:3306/ms_parcel_size?user=root&password=hskempten2014tool!!");
+		//open Connection
 		db.createParcelSizeTable();
 		db.insertParcelSize("XS", 35);
 		db.insertParcelSize("S",  50);
